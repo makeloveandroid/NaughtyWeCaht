@@ -12,14 +12,14 @@
 
 这些是我前前后后遇到的所有问题,有很多问题都困扰了我很长时间,在我我不断努力坚持下克服种种困难,终于大功告成了!
 ### 收集语音素材问题解决
-一开始这个问题我很头疼,去哪里找骚里骚气的语音呢?这个问题一度困扰我,一个软件数据才是重要支撑啊,突然有一天刷抖音发现了一个好玩的应用==很皮语音包==,这款APP提供了很多好玩的素材,大家可以下载看一看玩一玩![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307173950316.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70 =230x430)
+一开始这个问题我很头疼,去哪里找骚里骚气的语音呢?这个问题一度困扰我,一个软件数据才是重要支撑啊,突然有一天刷抖音发现了一个好玩的应用==很皮语音包==,这款APP提供了很多好玩的素材,大家可以下载看一看玩一玩![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307173950316.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70)
 下载应用瞧了瞧,抓包了下妈了个B,抓不到,应该是app启用了SSL Pinning（又叫“ssl证书绑定“）
 使用Xposed+JustTrustMe来突破这个问题[使用方式](https://bbs.pediy.com/thread-226435.htm)可以抓到包了哦![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307180410484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70)但是发现数据是加密的,那就需要知道加密算法了,通过ApkTool反编译很皮语音![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307175205628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70)
 我的天加固了...,好吧,看来还得脱壳,脱壳方案[脱壳方案](https://github.com/F8LEFT/FUPK3),脱壳完了终于可以分析了,分析过程就是耐心的过程,为了保护很皮语音加密算法就不公开了,嘿嘿,有素材了,编写个爬虫把数据,保存在数据库中,到这里素材问题解决了
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307180644308.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70)
 哈哈,好开心,10几W条语音素材了!!!!
 ### 录制音频如何变声
-接下来就是变声功能的开发,QQ很早就出现了变声的功能,但是微信却迟迟不出此功能,我也不知道为啥!!!他不出那我们自己加,首先如何录音呢?作为一个资深andorid开发工程师,这个问题我不解释,录完音如何变声呢?这是个难点,首先我找打了库==SoundTouch==的变声库,集成了下和查询了资料,发现这个可以变声的很少不好,接下来有找到了另外一个库==fmod==尝试的集成了下不错,但是我对音律一窍不通的我,也不知道变声对应调整的参数,没办法只要去抄袭[变音魔术师](http://bbs.zhiyoo.com/thread-9837927-1-1.html),好开心,得到了很多变音的语音素材,并且成功输出了wav的音频文件![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307182354659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70 =250x420)
+接下来就是变声功能的开发,QQ很早就出现了变声的功能,但是微信却迟迟不出此功能,我也不知道为啥!!!他不出那我们自己加,首先如何录音呢?作为一个资深andorid开发工程师,这个问题我不解释,录完音如何变声呢?这是个难点,首先我找打了库==SoundTouch==的变声库,集成了下和查询了资料,发现这个可以变声的很少不好,接下来有找到了另外一个库==fmod==尝试的集成了下不错,但是我对音律一窍不通的我,也不知道变声对应调整的参数,没办法只要去抄袭[变音魔术师](http://bbs.zhiyoo.com/thread-9837927-1-1.html),好开心,得到了很多变音的语音素材,并且成功输出了wav的音频文件![在这里插入图片描述](https://img-blog.csdnimg.cn/20190307182354659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbnlpbmd6aGk=,size_16,color_FFFFFF,t_70)
 ### 音频格式转换amr问题(ffmpeg&amr)
 #### 音频方面的知识点
 这里当时一直不了解如何转换的格式,最后去学习了解了下关于音频的知识,相关知识大家可以自行百度,我这里就总结下我所了解到的
